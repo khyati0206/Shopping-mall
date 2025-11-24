@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Mall - Online Shopping</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <h1 class="mb-0" style="font-size: 1.8rem; font-weight: 700; color: #333;">Shopping Mall</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home" onclick="handleNavClick(event, this)">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#men" onclick="handleNavClick(event, this)">Men</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#women" onclick="handleNavClick(event, this)">Women</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kids" onclick="handleNavClick(event, this)">Kids</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#toys" onclick="handleNavClick(event, this)">Toys</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <div class="cart-icon d-flex align-items-center" onclick="openCart()" style="cursor: pointer; position: relative;">
+                            <span id="cart-count" class="badge bg-primary rounded-pill position-absolute top-0 start-100 translate-middle" style="font-size: 0.7rem; min-width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;">0</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 21H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2"></path>
+                                <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path>
+                                <circle cx="9" cy="19" r="1"></circle>
+                                <circle cx="20" cy="19" r="1"></circle>
+                            </svg>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <div class="container">
+            <h2 class="section-title">Welcome to Shopping Mall</h2>
+            <p class="section-subtitle">Discover amazing products at great prices</p>
+            <div class="products-grid">
+                <!-- Men's Products -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" alt="Men's Watch" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Watch</h3>
+                        <p class="product-price">₹2,499</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Watch', 2499, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Watch', 2499, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=400" alt="Men's Shirt" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Shirt</h3>
+                        <p class="product-price">₹1,299</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Shirt', 1299, 'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Shirt', 1299, 'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" alt="Men's Shoes" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Shoes</h3>
+                        <p class="product-price">₹3,999</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Shoes', 3999, 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Shoes', 3999, 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1624378515193-8e8c8149f361?w=400" alt="Men's Jacket" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Jacket</h3>
+                        <p class="product-price">₹4,499</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Jacket', 4499, 'https://images.unsplash.com/photo-1624378515193-8e8c8149f361?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Jacket', 4499, 'https://images.unsplash.com/photo-1624378515193-8e8c8149f361?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1594938291221-94c1b4c0e0c0?w=400" alt="Men's Jeans" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Jeans</h3>
+                        <p class="product-price">₹1,899</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Jeans', 1899, 'https://images.unsplash.com/photo-1594938291221-94c1b4c0e0c0?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Jeans', 1899, 'https://images.unsplash.com/photo-1594938291221-94c1b4c0e0c0?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400" alt="Men's T-Shirt" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's T-Shirt</h3>
+                        <p class="product-price">₹799</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s T-Shirt', 799, 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s T-Shirt', 799, 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400" alt="Men's Sunglasses" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Sunglasses</h3>
+                        <p class="product-price">₹1,599</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Sunglasses', 1599, 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Sunglasses', 1599, 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400" alt="Men's Belt" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Belt</h3>
+                        <p class="product-price">₹999</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Belt', 999, 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Belt', 999, 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400" alt="Men's Wallet" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Wallet</h3>
+                        <p class="product-price">₹1,199</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Wallet', 1199, 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Wallet', 1199, 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Women's Products -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400" alt="Women's Handbag" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Handbag</h3>
+                        <p class="product-price">₹3,999</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Handbag', 3999, 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Handbag', 3999, 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400" alt="Women's Dress" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Dress</h3>
+                        <p class="product-price">₹2,799</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Dress', 2799, 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Dress', 2799, 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Women's Shoes" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Shoes</h3>
+                        <p class="product-price">₹3,499</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Shoes', 3499, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Shoes', 3499, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Women's Jewelry" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Jewelry</h3>
+                        <p class="product-price">₹5,999</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Jewelry', 5999, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Jewelry', 5999, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=400" alt="Women's Top" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Top</h3>
+                        <p class="product-price">₹1,299</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Top', 1299, 'https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Top', 1299, 'https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Women's Jeans" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Jeans</h3>
+                        <p class="product-price">₹2,199</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Jeans', 2199, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Jeans', 2199, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400" alt="Women's Sunglasses" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Sunglasses</h3>
+                        <p class="product-price">₹1,499</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Sunglasses', 1499, 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Sunglasses', 1499, 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Women's Scarf" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Scarf</h3>
+                        <p class="product-price">₹899</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Scarf', 899, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Scarf', 899, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400" alt="Women's Watch" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Watch</h3>
+                        <p class="product-price">₹2,999</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Watch', 2999, 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Watch', 2999, 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kids Products -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400" alt="Kids T-Shirt" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids T-Shirt</h3>
+                        <p class="product-price">₹599</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids T-Shirt', 599, 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids T-Shirt', 599, 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Kids Shoes" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Shoes</h3>
+                        <p class="product-price">₹1,299</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Shoes', 1299, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Shoes', 1299, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400" alt="Kids Jeans" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Jeans</h3>
+                        <p class="product-price">₹899</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Jeans', 899, 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Jeans', 899, 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1503341338985-b0475d4e5c0a?w=400" alt="Kids Backpack" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Backpack</h3>
+                        <p class="product-price">₹1,499</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Backpack', 1499, 'https://images.unsplash.com/photo-1503341338985-b0475d4e5c0a?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Backpack', 1499, 'https://images.unsplash.com/photo-1503341338985-b0475d4e5c0a?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400" alt="Kids Dress" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Dress</h3>
+                        <p class="product-price">₹1,199</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Dress', 1199, 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Dress', 1199, 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400" alt="Kids Cap" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Cap</h3>
+                        <p class="product-price">₹499</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Cap', 499, 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Cap', 499, 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1503341338985-b0475d4e5c0a?w=400" alt="Kids Jacket" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Jacket</h3>
+                        <p class="product-price">₹1,799</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Jacket', 1799, 'https://images.unsplash.com/photo-1503341338985-b0475d4e5c0a?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Jacket', 1799, 'https://images.unsplash.com/photo-1503341338985-b0475d4e5c0a?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Kids Socks" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Socks</h3>
+                        <p class="product-price">₹299</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Socks', 299, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Socks', 299, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400" alt="Kids Hat" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Hat</h3>
+                        <p class="product-price">₹399</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Hat', 399, 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Hat', 399, 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Toys Products -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=400" alt="Toy Car" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Toy Car</h3>
+                        <p class="product-price">₹899</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Toy Car', 899, 'https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Toy Car', 899, 'https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" alt="Teddy Bear" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Teddy Bear</h3>
+                        <p class="product-price">₹699</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Teddy Bear', 699, 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Teddy Bear', 699, 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400" alt="Building Blocks" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Building Blocks</h3>
+                        <p class="product-price">₹1,299</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Building Blocks', 1299, 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Building Blocks', 1299, 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400" alt="Puzzle Game" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Puzzle Game</h3>
+                        <p class="product-price">₹599</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Puzzle Game', 599, 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Puzzle Game', 599, 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400" alt="Robot Toy" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Robot Toy</h3>
+                        <p class="product-price">₹1,599</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Robot Toy', 1599, 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Robot Toy', 1599, 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1604910600000-1e57e5c0c0c0?w=400" alt="Doll House" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Doll House</h3>
+                        <p class="product-price">₹2,499</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Doll House', 2499, 'https://images.unsplash.com/photo-1604910600000-1e57e5c0c0c0?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Doll House', 2499, 'https://images.unsplash.com/photo-1604910600000-1e57e5c0c0c0?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400" alt="Action Figure" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Action Figure</h3>
+                        <p class="product-price">₹799</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Action Figure', 799, 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Action Figure', 799, 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400" alt="Board Game" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Board Game</h3>
+                        <p class="product-price">₹999</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Board Game', 999, 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Board Game', 999, 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=400" alt="Remote Control Car" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Remote Control Car</h3>
+                        <p class="product-price">₹1,899</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Remote Control Car', 1899, 'https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Remote Control Car', 1899, 'https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Men Section -->
+    <section id="men" class="section">
+        <div class="container">
+            <h2 class="section-title">Men's Collection</h2>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" alt="Men's Watch" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Watch</h3>
+                        <p class="product-price">₹2,499</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Watch', 2499, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Watch', 2499, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=400" alt="Men's Shirt" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Shirt</h3>
+                        <p class="product-price">₹1,299</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Shirt', 1299, 'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Shirt', 1299, 'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" alt="Men's Shoes" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Shoes</h3>
+                        <p class="product-price">₹3,999</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Shoes', 3999, 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Shoes', 3999, 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1624378515193-8e8c8149f361?w=400" alt="Men's Jacket" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Jacket</h3>
+                        <p class="product-price">₹4,499</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Jacket', 4499, 'https://images.unsplash.com/photo-1624378515193-8e8c8149f361?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Jacket', 4499, 'https://images.unsplash.com/photo-1624378515193-8e8c8149f361?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1594938291221-94c1b4c0e0c0?w=400" alt="Men's Jeans" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Jeans</h3>
+                        <p class="product-price">₹1,899</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Jeans', 1899, 'https://images.unsplash.com/photo-1594938291221-94c1b4c0e0c0?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Jeans', 1899, 'https://images.unsplash.com/photo-1594938291221-94c1b4c0e0c0?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400" alt="Men's T-Shirt" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's T-Shirt</h3>
+                        <p class="product-price">₹799</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s T-Shirt', 799, 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s T-Shirt', 799, 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400" alt="Men's Sunglasses" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Sunglasses</h3>
+                        <p class="product-price">₹1,599</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Sunglasses', 1599, 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Sunglasses', 1599, 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400" alt="Men's Belt" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Belt</h3>
+                        <p class="product-price">₹999</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Belt', 999, 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Belt', 999, 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400" alt="Men's Wallet" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Men's Wallet</h3>
+                        <p class="product-price">₹1,199</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Men\'s Wallet', 1199, 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Men\'s Wallet', 1199, 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Women Section -->
+    <section id="women" class="section">
+        <div class="container">
+            <h2 class="section-title">Women's Collection</h2>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400" alt="Women's Handbag" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Handbag</h3>
+                        <p class="product-price">₹3,999</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Handbag', 3999, 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Handbag', 3999, 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400" alt="Women's Dress" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Dress</h3>
+                        <p class="product-price">₹2,799</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Dress', 2799, 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Dress', 2799, 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Women's Shoes" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Shoes</h3>
+                        <p class="product-price">₹3,499</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Shoes', 3499, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Shoes', 3499, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Women's Jewelry" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Jewelry</h3>
+                        <p class="product-price">₹5,999</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Jewelry', 5999, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Jewelry', 5999, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=400" alt="Women's Top" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Top</h3>
+                        <p class="product-price">₹1,299</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Top', 1299, 'https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Top', 1299, 'https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Women's Jeans" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Jeans</h3>
+                        <p class="product-price">₹2,199</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Jeans', 2199, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Jeans', 2199, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400" alt="Women's Sunglasses" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Sunglasses</h3>
+                        <p class="product-price">₹1,499</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Sunglasses', 1499, 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Sunglasses', 1499, 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Women's Scarf" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Scarf</h3>
+                        <p class="product-price">₹899</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Scarf', 899, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Scarf', 899, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400" alt="Women's Watch" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Women's Watch</h3>
+                        <p class="product-price">₹2,999</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Women\'s Watch', 2999, 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Women\'s Watch', 2999, 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kids Section -->
+    <section id="kids" class="section">
+        <div class="container">
+            <h2 class="section-title">Kids Collection</h2>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400" alt="Kids T-Shirt" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids T-Shirt</h3>
+                        <p class="product-price">₹599</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids T-Shirt', 599, 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids T-Shirt', 599, 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Kids Shoes" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Shoes</h3>
+                        <p class="product-price">₹1,299</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Shoes', 1299, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Shoes', 1299, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400" alt="Kids Jeans" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Jeans</h3>
+                        <p class="product-price">₹899</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Jeans', 899, 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Jeans', 899, 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1503341338985-b0475d4e5c0a?w=400" alt="Kids Backpack" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Backpack</h3>
+                        <p class="product-price">₹1,499</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Backpack', 1499, 'https://images.unsplash.com/photo-1503341338985-b0475d4e5c0a?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Backpack', 1499, 'https://images.unsplash.com/photo-1503341338985-b0475d4e5c0a?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400" alt="Kids Dress" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Dress</h3>
+                        <p class="product-price">₹1,199</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Dress', 1199, 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Dress', 1199, 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400" alt="Kids Cap" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Cap</h3>
+                        <p class="product-price">₹499</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Cap', 499, 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Cap', 499, 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1503341338985-b0475d4e5c0a?w=400" alt="Kids Jacket" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Jacket</h3>
+                        <p class="product-price">₹1,799</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Jacket', 1799, 'https://images.unsplash.com/photo-1503341338985-b0475d4e5c0a?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Jacket', 1799, 'https://images.unsplash.com/photo-1503341338985-b0475d4e5c0a?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Kids Socks" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Socks</h3>
+                        <p class="product-price">₹299</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Socks', 299, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Socks', 299, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400" alt="Kids Hat" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Hat</h3>
+                        <p class="product-price">₹399</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Kids Hat', 399, 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Kids Hat', 399, 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toys Section -->
+    <section id="toys" class="section">
+        <div class="container">
+            <h2 class="section-title">Toys Collection</h2>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=400" alt="Toy Car" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Toy Car</h3>
+                        <p class="product-price">₹899</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Toy Car', 899, 'https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Toy Car', 899, 'https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" alt="Teddy Bear" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Teddy Bear</h3>
+                        <p class="product-price">₹699</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Teddy Bear', 699, 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Teddy Bear', 699, 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400" alt="Building Blocks" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Building Blocks</h3>
+                        <p class="product-price">₹1,299</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Building Blocks', 1299, 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Building Blocks', 1299, 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400" alt="Puzzle Game" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Puzzle Game</h3>
+                        <p class="product-price">₹599</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Puzzle Game', 599, 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Puzzle Game', 599, 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400" alt="Robot Toy" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Robot Toy</h3>
+                        <p class="product-price">₹1,599</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Robot Toy', 1599, 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Robot Toy', 1599, 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1604910600000-1e57e5c0c0c0?w=400" alt="Doll House" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Doll House</h3>
+                        <p class="product-price">₹2,499</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Doll House', 2499, 'https://images.unsplash.com/photo-1604910600000-1e57e5c0c0c0?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Doll House', 2499, 'https://images.unsplash.com/photo-1604910600000-1e57e5c0c0c0?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400" alt="Action Figure" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Action Figure</h3>
+                        <p class="product-price">₹799</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Action Figure', 799, 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Action Figure', 799, 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400" alt="Board Game" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Board Game</h3>
+                        <p class="product-price">₹999</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Board Game', 999, 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Board Game', 999, 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=400" alt="Remote Control Car" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Remote Control Car</h3>
+                        <p class="product-price">₹1,899</p>
+                        <div class="product-buttons">
+                            <button class="btn btn-add-cart" onclick="addToCart('Remote Control Car', 1899, 'https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=400')">Add to Cart</button>
+                            <button class="btn btn-buy-now" onclick="buyNow('Remote Control Car', 1899, 'https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=400')">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart" class="section">
+        <div class="container">
+            <h2 class="section-title">Shopping Cart</h2>
+            <div id="cart-items-container">
+                <div id="empty-cart-message" class="empty-cart">
+                    <p>Your cart is empty</p>
+                </div>
+            </div>
+            <div id="cart-summary" class="cart-summary" style="display: none;">
+                <div class="cart-total">
+                    <h3>Total: <span id="cart-total-amount">₹0</span></h3>
+                    <button class="btn btn-buy-now" onclick="checkoutCart()">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Payment Details</h2>
+            <form id="payment-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="card">Card Number</label>
+                    <input type="text" id="card" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry">Expiry Date</label>
+                        <input type="text" id="expiry" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="total-amount">Total Amount</label>
+                    <input type="text" id="total-amount" readonly>
+                </div>
+                <button type="submit" class="btn btn-submit">Submit Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Thank You Popup -->
+    <div id="thank-you-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <div class="popup-icon">✓</div>
+            <h2>Thank You!</h2>
+            <p>Your order has been placed successfully.</p>
+            <p>We'll send you a confirmation email shortly.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Shopping Cart Mall</h3>
+                <p>Your one-stop destination for all your shopping needs. Quality products at affordable prices.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="#" class="social-link">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#men">Men</a></li>
+                    <li><a href="#women">Women</a></li>
+                    <li><a href="#kids">Kids</a></li>
+                    <li><a href="#toys">Toys</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact">
+                    <li>📧 info@shoppingmall.com</li>
+                    <li>📞 +91 123 456 7890</li>
+                    <li>📍 123 Shopping Street, City, State 123456</li>
+                    <li>🕒 Mon-Sat: 9:00 AM - 9:00 PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Shopping Mall. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
