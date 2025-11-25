@@ -1,8 +1,59 @@
 // Cart data stored in localStorage
 let cart = [];
 
+// Product catalog
+const categoryOrder = ['men', 'women', 'kids', 'toys'];
+
+const products = {
+    men: [
+        { name: "Men's Watch", price: 2499, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
+        { name: "Men's Shirt", price: 1299, image: "https://images.unsplash.com/photo-1589234217365-08d3e0e5cf42?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWVucyUyMHNoaXJ0fGVufDB8fDB8fHww" },
+        { name: "Men's Shoes", price: 3999, image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" },
+        { name: "Men's Jacket", price: 4499, image: "https://images.unsplash.com/photo-1715608720717-ac3d1b638e44?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bWVucyUyMGphY2tldHxlbnwwfHwwfHx8MA%3D%3D" },
+        { name: "Men's Jeans", price: 1899, image: "https://images.unsplash.com/photo-1594938291221-94c1b4c0e0c0?w=400" },
+        { name: "Men's T-Shirt", price: 799, image: "https://plus.unsplash.com/premium_photo-1689629728966-0d248b5aeda2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWVucyUyMHRzaGlydHxlbnwwfHwwfHx8MA%3D%3D" },
+        { name: "Men's Sunglasses", price: 1599, image: "https://images.unsplash.com/photo-1590526599411-42bcd63d50fe?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWVucyUyMHN1bmdsYXNzZXN8ZW58MHx8MHx8fDA%3D" },
+        { name: "Men's Belt", price: 999, image: "https://images.unsplash.com/photo-1705493655920-20c572928501?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWVucyUyMGJlbHR8ZW58MHx8MHx8fDA%3D" },
+        { name: "Men's Wallet", price: 1199, image: "https://plus.unsplash.com/premium_photo-1666739389067-ff71ad748f3e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bWVucyUyMHdhbGxldHxlbnwwfHwwfHx8MA%3D%3D" }
+    ],
+    women: [
+        { name: "Women's Handbag", price: 3999, image: "https://images.unsplash.com/photo-1751522925876-79bfeae6fbfb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d29tZW5zJTIwJTIwaGFuZGJhZ3xlbnwwfHwwfHx8MA%3D%3D" },
+        { name: "Women's Dress", price: 2799, image: "https://images.unsplash.com/photo-1616313253719-c46514cddee1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdvbWVucyUyMCUyMGRyZXNzfGVufDB8fDB8fHww" },
+        { name: "Women's Shoes", price: 3499, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" },
+        { name: "Women's Jewelry", price: 5999, image: "https://images.unsplash.com/photo-1694062045776-f48d9b6de57e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHdvbWVucyUyMCUyMGpld2VsbGVyeXxlbnwwfHwwfHx8MA%3D%3D" },
+        { name: "Women's Top", price: 1299, image: "https://plus.unsplash.com/premium_photo-1690038784056-715b684ce6ba?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdvbWVucyUyMCUyMHRvcHxlbnwwfHwwfHx8MA%3D%3D" },
+        { name: "Women's Jeans", price: 2199, image: "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d29tZW5zJTIwJTIwamVhbnN8ZW58MHx8MHx8fDA%3D" },
+        { name: "Women's Sunglasses", price: 1499, image: "https://images.unsplash.com/photo-1531335843837-11353e3c87c5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d29tZW5zJTIwJTIwc3VuZ2xhc3Nlc3xlbnwwfHwwfHx8MA%3D%3D" },
+        { name: "Women's Scarf", price: 899, image: "https://media.istockphoto.com/id/897271658/photo/beautiful-woman-with-cancer-smiles.webp?a=1&b=1&s=612x612&w=0&k=20&c=99cMk-JKyu0dIgNJOHpdVGGTlJpK6Q8laaZEEIs-fOY=" },
+        { name: "Women's Watch", price: 2999, image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d29tZW5zJTIwd2F0Y2h8ZW58MHx8MHx8fDA%3D" }
+    ],
+    kids: [
+        { name: "Kids T-Shirt", price: 599, image: "https://images.unsplash.com/photo-1754639488181-7eae9f6c06e0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGtpZHMlMjB0c2hpcnR8ZW58MHx8MHx8fDA%3D" },
+        { name: "Kids Shoes", price: 1299, image: "https://images.unsplash.com/photo-1678192568478-9488ee55def6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a2lkcyUyMHNob2VzfGVufDB8fDB8fHww" },
+        { name: "Kids Jeans", price: 899, image: "https://images.unsplash.com/photo-1714074566016-4200bfb6f88a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGtpZHMlMjBqZWFuc3xlbnwwfHwwfHx8MA%3D%3D" },
+        { name: "Kids Backpack", price: 1499, image: "https://plus.unsplash.com/premium_photo-1687128298225-fab96b21c771?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2lkcyUyMGJhY2twYWNrfGVufDB8fDB8fHww" },
+        { name: "Kids Dress", price: 1199, image: "https://images.unsplash.com/photo-1578897367107-2828e351c8a8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2lkcyUyMGRyZXNzfGVufDB8fDB8fHww" },
+        { name: "Kids Cap", price: 499, image: "https://images.unsplash.com/photo-1732041101308-b231eacf8767?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2lkcyUyMGNhcHxlbnwwfHwwfHx8MA%3D%3D" },
+        { name: "Kids Jacket", price: 1799, image: "https://plus.unsplash.com/premium_photo-1707816501228-1d814ad62d7b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2lkcyUyMGphY2tldHxlbnwwfHwwfHx8MA%3D%3D" },
+        { name: "Kids Socks", price: 299, image: "https://plus.unsplash.com/premium_photo-1663099237349-c07dece464be?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2lkcyUyMHNvY2tzfGVufDB8fDB8fHww" },
+        { name: "Kids Hat", price: 399, image: "https://images.unsplash.com/photo-1620508458727-85ff8a78d160?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2lkcyUyMGhhdHxlbnwwfHwwfHx8MA%3D%3D" }
+    ],
+    toys: [
+        { name: "Toy Car", price: 899, image: "https://images.unsplash.com/photo-1609708536965-6e5b915b195b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG95JTIwY2FyfGVufDB8fDB8fHww" },
+        { name: "Teddy Bear", price: 699, image: "https://images.unsplash.com/photo-1602734846297-9299fc2d4703?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVkZHklMjBiZWFyfGVufDB8fDB8fHww" },
+        { name: "Building Blocks", price: 1299, image: "https://images.unsplash.com/photo-1638802538115-041e14d28d6a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnVpbGRpbmclMjBibG9ja3N8ZW58MHx8MHx8fDA%3D" },
+        { name: "Puzzle Game", price: 599, image: "https://plus.unsplash.com/premium_photo-1726783362305-0582cc6dceef?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHV6emxlJTIwZ2FtZXxlbnwwfHwwfHx8MA%3D%3D" },
+        { name: "Robot Toy", price: 1599, image: "https://images.unsplash.com/photo-1546776230-bb86256870ce?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cm9ib3QlMjB0b3l8ZW58MHx8MHx8fDA%3D" },
+        { name: "Doll House", price: 2499, image: "https://plus.unsplash.com/premium_photo-1661274044376-d372f897757a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZG9sbCUyMGhvdXNlfGVufDB8fDB8fHww" },
+        { name: "Action Figure", price: 799, image: "https://images.unsplash.com/photo-1606663889134-b1dedb5ed8b7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWN0aW9uJTIwZmlndXJlfGVufDB8fDB8fHww" },
+        { name: "Board Game", price: 999, image: "https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Ym9hcmQlMjBnYW1lfGVufDB8fDB8fHww" },
+        { name: "Remote Control Car", price: 1899, image: "https://images.unsplash.com/photo-1758964087156-0eac97044f84?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cmVtb3RlJTIwY29udHJvbCUyMGNhcnxlbnwwfHwwfHx8MA%3D%3D" }
+    ]
+};
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
+    renderAllProducts();
     loadCartFromStorage();
     updateCartCount();
     setupNavigation();
@@ -52,6 +103,52 @@ function addToCart(productName, price, image) {
     
     // Show notification
     showNotification('Item added to cart!');
+}
+
+// Render all product sections
+function renderAllProducts() {
+    const homeContainer = document.getElementById('home-products');
+    if (homeContainer) {
+        homeContainer.innerHTML = '';
+    }
+
+    categoryOrder.forEach(category => {
+        const cardsHTML = products[category].map(createProductCard).join('');
+        if (homeContainer) {
+            homeContainer.innerHTML += cardsHTML;
+        }
+        const sectionContainer = document.getElementById(`${category}-products`);
+        if (sectionContainer) {
+            sectionContainer.innerHTML = cardsHTML;
+        }
+    });
+}
+
+function createProductCard(product) {
+    const formattedPrice = formatPrice(product.price);
+    const escapedName = escapeQuotes(product.name);
+    const escapedImage = escapeQuotes(product.image);
+    return `
+        <div class="product-card">
+            <img src="${product.image}" alt="${product.name}" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">${product.name}</h3>
+                <p class="product-price">₹${formattedPrice}</p>
+                <div class="product-buttons">
+                    <button class="btn btn-add-cart" onclick="addToCart('${escapedName}', ${product.price}, '${escapedImage}')">Add to Cart</button>
+                    <button class="btn btn-buy-now" onclick="buyNow('${escapedName}', ${product.price}, '${escapedImage}')">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function formatPrice(value) {
+    return value.toLocaleString('en-IN');
+}
+
+function escapeQuotes(text) {
+    return text.replace(/'/g, "\\'");
 }
 
 // Buy now function
